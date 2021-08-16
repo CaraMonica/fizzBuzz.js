@@ -2,7 +2,7 @@ const readline = require("readline-sync");
 
 const printWelcomeMessage = () => console.log("Welcome to FizzBuzz!");
 
-const getNumber = (message) => {
+const getNumber = message => {
   console.log(`\n ${message}`);
   return readline.prompt();
 };
