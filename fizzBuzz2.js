@@ -13,7 +13,7 @@ const SPECIAL_RULES = [11, 13, 17];
 
 const printWelcomeMessage = () => console.log("Welcome to FizzBuzz!");
 
-const getNumber = (message) => {
+const getNumber = message => {
   console.log(message);
   return readline.prompt();
 };
@@ -58,15 +58,15 @@ const fizzBuzz = (sortedRules, startNumber, endNumber) => {
       rulesToApply.reverse();
     }
 
-    rulesToApply.forEach((ruleNum) => {
-      if (isDivisible(i, ruleNum)) {
-        if (ruleNum === 13) {
+    rulesToApply.forEach(ruleNumber => {
+      if (isDivisible(i, ruleNumber)) {
+        if (ruleNumber === 13) {
           let indexOfFirstB = results.findIndex(
-            (word) => word.charAt(0) === "B"
+            word => word.charAt(0) === "B"
           );
-          results.splice(indexOfFirstB, 0, WORD_MAP[ruleNum]);
+          results.splice(indexOfFirstB, 0, WORD_MAP[ruleNumber]);
         } else {
-          results.push(WORD_MAP[ruleNum]);
+          results.push(WORD_MAP[ruleNumber]);
         }
       }
     });
