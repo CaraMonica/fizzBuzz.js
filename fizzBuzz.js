@@ -7,14 +7,22 @@ const getNumber = (message) => {
   return readline.prompt();
 };
 
-const fizzBuzz = (startNumber, endNumber) => {
-  console.log("\n");
-  for (let i = startNumber; i <= endNumber; i++) {
-    let result = "";
-    if (i % 3 === 0) result += "Fizz";
-    if (i % 5 === 0) result += "Buzz";
+const isDivisible = (number, factor) => number % factor === 0;
 
-    console.log(result === "" ? i : result);
+const fizzBuzz = (startNumber, endNumber) => {
+  for (let i = startNumber; i <= endNumber; i++) {
+    let result = [];
+    if (isDivisible(i, 3)) result.push("Fizz");
+    if (isDivisible(i, 13)) result.push("Fezz");
+    if (isDivisible(i, 11)) {
+      console.log(result.length === 2 ? "FezzBong" : "Bong");
+      continue;
+    }
+    if (isDivisible(i, 5)) result.push("Buzz");
+    if (isDivisible(i, 7)) result.push("Bang");
+    if (isDivisible(i, 17)) result.reverse();
+
+    console.log(result.length === 0 ? i : result.join(""));
   }
 };
 
