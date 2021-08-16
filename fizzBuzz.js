@@ -1,36 +1,25 @@
-const readline = require('readline-sync');
+const readline = require("readline-sync");
 
-const printWelcomeMessage = () => {
-    console.log('Welcome to FizzBuzz!')
-};
+const printWelcomeMessage = () => console.log("Welcome to FizzBuzz!");
 
 const getNumber = (message) => {
-    console.log(`\n ${message}`);
-    return readline.prompt();
-}
+  console.log(`\n ${message}`);
+  return readline.prompt();
+};
 
-const fizzBuzz = (startN, endN) => {
-  for (let i = startN; i <= endN; i++) {
-    let message = "";
+const fizzBuzz = (startNumber, endNumber) => {
+  console.log("\n");
+  for (let i = startNumber; i <= endNumber; i++) {
+    let result = "";
+    if (i % 3 === 0) result += "Fizz";
+    if (i % 5 === 0) result += "Buzz";
 
-    if (i % 3 === 0) {
-      message += "Fizz";
-    }
+    console.log(result === "" ? i : result);
+  }
+};
 
-    if (i % 5 === 0) {
-      message += "Buzz";
-    }
-
-    console.log(message === "" ? i : message);
-  };
-}
-
-const runFizzBuzz = () => {
-    fizzBuzz(getNumber('\nStart number:'), getNumber('\nEnd number:'))
-}
-
+const runFizzBuzz = () =>
+  fizzBuzz(getNumber("Start number:"), getNumber("End number:"));
 
 printWelcomeMessage();
-while (true) {
-    runFizzBuzz();
-}
+runFizzBuzz();
