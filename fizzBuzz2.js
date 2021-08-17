@@ -50,7 +50,7 @@ const fizzBuzz = (sortedRules, startNumber, endNumber) => {
     let rulesToApply = [...sortedRules];
 
     if (rulesToApply.includes(11) && isDivisible(i, 11)) {
-      rulesToApply = rulesToApply.filter(SPECIAL_RULES.includes);
+      rulesToApply = rulesToApply.filter(n => SPECIAL_RULES.includes(n));
     }
 
     if (rulesToApply.includes(17) && isDivisible(i, 17)) {
@@ -64,7 +64,8 @@ const fizzBuzz = (sortedRules, startNumber, endNumber) => {
           let indexOfFirstB = results.findIndex(
             word => word.charAt(0) === "B"
           );
-          results.splice(indexOfFirstB, 0, WORD_MAP[ruleNumber]);
+          let index = indexOfFirstB === -1 ? 0 : indexOfFirstB;
+          results.splice(index, 0, WORD_MAP[ruleNumber]);
         } else {
           results.push(WORD_MAP[ruleNumber]);
         }
